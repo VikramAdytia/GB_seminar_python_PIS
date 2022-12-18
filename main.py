@@ -1,3 +1,5 @@
-import controller
+#!/usr/bin/env python3
 
-controller.button_click()
+import controller as c 
+
+c.button_click()
