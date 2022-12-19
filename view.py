@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import json
 
 def main_menu():
     return input('Выберите действие: \n1 - посмотреть справочник\n2 - найти\n3 - добавить\n4 - выход\n')
@@ -25,12 +25,23 @@ def print_person(person):
 
 
 def print_phonebook(phone_book):
-    if not phone_book: 
+    if not phone_book:
         print('Справочник пустой')
         return
-    for person in phone_book:
-        print_person(person)
-    print('\n')    
+    with open('data.json', 'r', encoding='utf-8') as f:
+        text = json.load(f)
+
+    for txt in text:
+        print(txt['first_name'], ':', txt['last_name'], ':', txt['number_phone'], ':', txt['description'])
+        print('\n')
+
+# def print_phonebook(phone_book):
+#     if not phone_book:
+#         print('Справочник пустой')
+#         return
+#     for person in phone_book:
+#         print_person(person)
+#     print('\n')
 
 
 def print_searh_result(result):
